@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useRef, useState } from "react";
 
 function App() {
+  const inputRef = useRef(null);
+  const [todoList, setTodoList] = useState([]);
+
+  const handleEnter = () => {
+    const currentValue = inputRef.current.value;
+    if (currentValue.split(" ").join("").length > 0) {
+      setTodoList((previousList) => [...previousList, currentValue]);
+    }
+
+    inputRef.current.value = null;
+    inputRef.current.focus();
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.code === "Enter") {
+      handleEnter();
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <h1>Welcome to my</h1>
+        <h2>To Dos</h2>
+      </div>
+      <div>
+        <input
+          placeholder="Enter To Dos"
+          ref={inputRef}
+          onKeyDown={handleKeyDown}
+        />
+        <button onClick={handleEnter}>Enter</button>
+      </div>
+
+      {todoList.map((todo, index) => (
+        <div key={index}>
+          <textarea value={todo} onChange={() => {}} /> <button>Delete</button>
+        </div>
+      ))}
+    </>
   );
 }
 
