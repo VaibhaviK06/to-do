@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 function App() {
   const inputRef = useRef(null);
   const [todoList, setTodoList] = useState([]);
-
+  
   const handleEnter = () => {
     const currentValue = inputRef.current.value;
     if (currentValue.split(" ").join("").length > 0) {
@@ -24,21 +24,31 @@ function App() {
   return (
     <>
       <div>
-        <h1>Welcome to my</h1>
-        <h2>To Dos</h2>
+        <h1 className="Heading1">Welcome to my</h1>
+        <h2 className="Heading2">To Dos</h2>
       </div>
-      <div>
+      <div className="InputHolder">
         <input
+          className="InputContent"
           placeholder="Enter To Dos"
           ref={inputRef}
           onKeyDown={handleKeyDown}
         />
-        <button onClick={handleEnter}>Enter</button>
+        <button className="EnterButton" onClick={handleEnter}>
+          Enter
+        </button>
       </div>
 
       {todoList.map((todo, index) => (
-        <div key={index}>
-          <textarea value={todo} onChange={() => {}} /> <button>Delete</button>
+        <div className="InputHolder2" key={index}>
+          <input value={todo} className='InputContent2' onChange={() => {}} />
+          <button className="DeleteButton"
+            onClick={() => {
+              setTodoList(todoList.filter((item) => item !== todo));
+            }}
+          >
+            Delete
+          </button>
         </div>
       ))}
     </>

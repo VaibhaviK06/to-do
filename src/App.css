@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+.EnterButton {
+  text-align: center;
+  width: 88px;
+  height: 50px;
+  font-size: 17px;
+  padding: 14px 14px;
+}
+.InputHolder {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  font-size: 19px;
+  gap: 21px;
+}
+.InputContent {
+  width: 300px;
+
+  text-align: center;
+}
+.Heading1 {
+  font-size: 60px;
+  font-family: Raleway;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.Heading2 {
+  font-family: "Great Vibes", cursive;
+  text-align: center;
+  font-size: 40px;
+  margin: 0;
+}
+.InputHolder2 {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  font-size: 19px;
+  gap: 21px;
+  margin-top: 60px;
+}
+.InputContent2 {
+  width: 300px;
+  resize: none;
+  text-align: center;
+}
+.DeleteButton {
+  text-align: center;
+  width: 88px;
+  height: 50px;
+  font-size: 17px;
+  padding: 14px 14px;
+}
